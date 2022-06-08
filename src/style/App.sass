@@ -1,0 +1,79 @@
+$app-bg: #E9EDC9
+$nav-bg: #CCD5AE
+$quote-bg: #FAEDCD
+$timer-bg: #ffffff7e
+$decrease: #CD0303A1
+$increase: #05561B91
+
+#Focus-page
+    height:100vh
+    
+    background-color: $app-bg
+
+
+#About-page
+    height: 100vh
+    text-align: center
+    padding-top: 5%
+    background-color: #FAEDCD
+
+.quote-widget
+    width: 40%
+    height: auto
+    margin: auto
+    padding-left: 5%
+    padding-right: 5%
+    background: $quote-bg
+    border-radius: 100px
+    text-align: center
+
+.task-widget
+    width: 30%
+    margin: auto
+
+.timer-widget
+    @extend .task-widget
+    text-align: center
+    height: 40%
+    padding-top: 3%
+    background: $timer-bg
+
+.navbar-light 
+    background-color: $nav-bg !important
+
+.increase 
+    background-color: $increase
+    border: 0
+
+.decrease
+    background-color: $decrease
+    border: 0
+
+.together
+    display: inline-flex
+    text-align: center
+    margin: 0
+
+.left,.right
+    padding: 10%
+
+.start
+    display: block
+    margin: auto
+    border-radius: 60px
+    background-color: #94B89C
+    border:0
+    padding-left: 5%
+    padding-right: 5%
+
+h1 
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    padding-left: 5%
+
+#author
+    text-align: right
+
+#right 
+    float: right
+
+

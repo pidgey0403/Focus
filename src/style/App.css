@@ -1,6 +1,7 @@
 #Focus-page {
   height: 100vh;
-  background-color: #E9EDC9;
+  margin: auto;
+  background: #e9edc9;
 }
 
 #About-page {
@@ -29,7 +30,7 @@
 .timer-widget {
   text-align: center;
   height: 40%;
-  padding-top: 3%;
+  padding-top: 2%;
   background: rgba(255, 255, 255, 0.4941176471);
 }
 
@@ -69,7 +70,7 @@
 
 h1 {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding-left: 5%;
+  text-align: center;
 }
 
 #author {

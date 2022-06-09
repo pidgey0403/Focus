@@ -1,9 +1,14 @@
-const RootReducer = (state=25, action) => {
-    switch (action.type) {
-        case 'INCREMENT': return state + 1;
-        case 'DECREMENT': return state - 1;
-        default: return state;
-    }
-}
+import breakReducer from "./break";
+import studyReducer from "./study";
+import taskReducer from "./task";
 
-export default RootReducer;
+import { combineReducers } from "redux";
+
+// this is combining our 4 other reducers 
+const rootReducer = combineReducers({
+    study: studyReducer,
+    break: breakReducer,
+    task: taskReducer,
+})
+
+export default rootReducer;

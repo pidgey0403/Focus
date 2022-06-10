@@ -1,41 +1,44 @@
 #Focus-page {
   height: 100vh;
   margin: auto;
-  background: #e9edc9;
+  background: #ffffff;
 }
 
-#About-page {
-  height: 100vh;
-  text-align: center;
-  padding-top: 5%;
-  background-color: #FAEDCD;
+#timer-display {
+  font-family: "Roboto Mono", monospace;
+  font-size: 60px;
 }
 
 .quote-widget {
+  position: relative;
   width: 40%;
   height: auto;
   margin: auto;
   padding-left: 5%;
   padding-right: 5%;
-  background: #FAEDCD;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  background: #e6e6e6;
   border-radius: 100px;
   text-align: center;
 }
 
-.task-widget, .timer-widget {
-  width: 30%;
-  margin: auto;
+#space {
+  padding-top: 7%;
 }
 
 .timer-widget {
+  width: 30%;
+  margin: auto;
   text-align: center;
   height: 40%;
-  padding-top: 2%;
+  padding-top: 1%;
   background: rgba(255, 255, 255, 0.4941176471);
 }
 
-.navbar-light {
-  background-color: #CCD5AE !important;
+table {
+  margin: auto;
+  width: 60%;
 }
 
 .increase {
@@ -46,6 +49,12 @@
 .decrease {
   background-color: rgba(205, 3, 3, 0.631372549);
   border: 0;
+}
+
+.press {
+  background-color: #afd4ec;
+  border: 0;
+  color: black;
 }
 
 .together {

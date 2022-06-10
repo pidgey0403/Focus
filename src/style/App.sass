@@ -1,58 +1,68 @@
-$app-bg: #e9edc9
-$nav-bg: #CCD5AE
-$quote-bg: #FAEDCD
+$app-bg: #ffffff
+$quote-bg: #e6e6e6
 $timer-bg: #ffffff7e
 $decrease: #CD0303A1
 $increase: #05561B91
+
 
 #Focus-page
     height:100vh
     margin: auto
     background: $app-bg
  
+#timer-display
+    font-family: 'Roboto Mono', monospace
+    font-size: 60px
 
-#About-page
-    height: 100vh
-    text-align: center
-    padding-top: 5%
-    background-color: #FAEDCD
 
 .quote-widget
+    position: relative
     width: 40%
     height: auto
     margin: auto
     padding-left: 5%
     padding-right: 5%
+    padding-top: 1%
+    padding-bottom: 0.5%
     background: $quote-bg
     border-radius: 100px
     text-align: center
 
-.task-widget
-    width: 30%
-    margin: auto
+#space
+    padding-top: 7%
 
 .timer-widget
-    @extend .task-widget
+    width: 30%
+    margin: auto
     text-align: center
     height: 40%
-    padding-top: 2%
+    padding-top: 1%
     background: $timer-bg
-
-.navbar-light 
-    background-color: $nav-bg !important
+    
+table
+    margin: auto
+    width: 60%
 
 .increase 
     background-color: $increase
     border: 0
+    
 
 .decrease
     background-color: $decrease
     border: 0
 
+.press
+    background-color: #afd4ec
+    border: 0
+    color: black
+    
 .together
     display: inline-flex
     text-align: center
     margin: 0
+   
+        
 
 .left,.right
     padding: 10%

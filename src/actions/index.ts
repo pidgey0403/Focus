@@ -1,25 +1,29 @@
 /* Action creators */
 
-export const incrStdy = ():object =>{ // increment study timer
+export const incrStdy = (genre: string):object =>{ // increment study timer
     return {
-        type: 'INCREMENT'
+        type: 'INCREMENT',
+        payload: genre
     };
 };
 
-export const decrStdy = ():object => { // decrement study timer
+export const decrStdy = (genre:string):object => { // decrement study timer
     return {
-        type: 'DECREMENT'
+        type: 'DECREMENT',
+        payload: genre
     };
 };
 
-export const incrBrk = ():object =>{ // increment break timer
+export const incrBrk = (genre:string):object =>{ // increment break timer
     return {
-        type: 'INCREMENT'
+        type: 'INCREMENT',
+        payload: genre
     };
 };
 
-export const decrBrk= ():object => { // decrement break timer
+export const decrBrk= (genre:string):object => { // decrement break timer
     return {
-        type: 'DECREMENT'
+        type: 'DECREMENT',
+        payload: genre
     };
 };

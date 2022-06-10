@@ -1,17 +1,16 @@
-const studyReducer = (state=25, action) => {
-    if (action.payload === 'study'){
+"use strict";
+exports.__esModule = true;
+var studyReducer = function (state, action) {
+    if (state === void 0) { state = 25; }
+    if (action.payload === "study") {
         switch (action.type) {
-            case 'INCREMENT': 
-                return state + 1;
-            case 'DECREMENT': 
-                return state - 1;
-            default: 
-                return state;
+            case 'INCREMENT': return state + 1;
+            case 'DECREMENT': return state - 1;
+            default: return state;
         }
-    } else{
+    }
+    else {
         return state;
     }
-    
-}
-
-export default studyReducer;
+};
+exports["default"] = studyReducer;

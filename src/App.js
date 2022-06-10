@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import './style/App.css';
 import logo from './logo.png';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { incrStdy, decrStdy, incrBrk, decrBrk, addText } from './actions';
+import { incrStdy, decrStdy, incrBrk, decrBrk } from './actions';
 import { date, time } from './date.js';
 
 
@@ -48,10 +48,12 @@ function App() {
   const minute = String(Math.floor(remainingTime / 60)).padStart(2, 0);
   const seconds = String(remainingTime % 60).padStart(2, 0);
 
-  const pauseTimer=() => {
-
+  const pauseTimer = () => {
+    //TODO: complete this
   };
-  const stopTimer=() =>{
+
+  const stopTimer = () => {
+    //TODO: complete this
 
   };
 
@@ -93,14 +95,13 @@ function App() {
 
 
           <p>{minute}:{seconds}</p>
-
         </div><br /><br />
 
         <div className='quote-widget'>
-            <p id='quote'>“I always did something I was a little not ready to do. I think that’s how you grow. When there’s that moment of
-              ‘Wow, I’m not really sure I can do this,’ and you push through those moments, that’s when you have a breakthrough.”</p>
-            <p id='author'> -u/LoreeKButler</p>
-          </div>
+          <p id='quote'>“I always did something I was a little not ready to do. I think that’s how you grow. When there’s that moment of
+            ‘Wow, I’m not really sure I can do this,’ and you push through those moments, that’s when you have a breakthrough.”</p>
+          <p id='author'> -u/LoreeKButler</p>
+        </div>
       </div>
     </div>
   );

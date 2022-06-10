@@ -1,36 +1,27 @@
-export const incrStdy = (genre) =>{ // action creator to increment study timer
+/* Action creators */
+exports.__esModule = true;
+exports.decrBrk = exports.incrBrk = exports.decrStdy = exports.incrStdy = void 0;
+var incrStdy = function () {
     return {
-        type: 'INCREMENT',
-        payload: genre
+        type: 'INCREMENT'
     };
 };
-
-export const decrStdy = (genre) => { // action creator to decrement study timer
+exports.incrStdy = incrStdy;
+var decrStdy = function () {
     return {
-        type: 'DECREMENT',
-        payload: genre
-        
+        type: 'DECREMENT'
     };
 };
-
-export const incrBrk = (genre) =>{ // action creator to increment break timer
+exports.decrStdy = decrStdy;
+var incrBrk = function () {
     return {
-        type: 'INCREMENT',
-        payload: genre
+        type: 'INCREMENT'
     };
 };
-
-
-export const decrBrk= (genre) => { // action creator to decrement break timer
+exports.incrBrk = incrBrk;
+var decrBrk = function () {
     return {
-        type: 'DECREMENT',
-        payload: genre
+        type: 'DECREMENT'
     };
 };
-
-export const addText = (text) => { 
-    return {
-        type: 'UPDATE',
-        payload: text
-    };
-};
+exports.decrBrk = decrBrk;

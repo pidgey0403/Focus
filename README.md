@@ -3,7 +3,7 @@
 
 This project was designed as a revision to my original pomodoro timer project, which was made with vanilla HTML/CSS and Javascript. After learning more about front-end web development I thought it apt to build an improved version using a framework like React.js, and further build my competency with other tools such as Redux and Typescript. 
 
-Some notable features:
+### Features
 - dynamic inspiriational quotes fetched using Reddit's RESTful API
 - a clutter free theme 
 

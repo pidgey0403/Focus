@@ -5,7 +5,8 @@ This project was designed as a revision to my original pomodoro timer which was 
 
 ### Features
 - dynamic inspiriational quotes fetched using Reddit's RESTful API
-- a clutter free theme 
+- toggleable light or dark themes
+- user customizable study cycle durations
 
 ### Technologies and Frameworks
    <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/></a> 

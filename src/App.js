@@ -6,14 +6,15 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { incrStdy, decrStdy, incrBrk, decrBrk } from './actions';
 import { date, time } from './date.js';
+import Mp3 from './alert.mp3';
 
 function App() {
   const study_time = useSelector(state => state.study);
   const break_time = useSelector(state => state.break);
   const dispatch = useDispatch();
 
+  //display our time component using a timeout function 
   const [timer, setCounter] = useState(time());
-  //initiating a timeout function, without our mount lifecycle method
   useEffect(() => { // fires on Mount
     const interval = setInterval(() => {
       setCounter(time());
@@ -21,23 +22,22 @@ function App() {
     return () => clearInterval(interval); //unmount function to account for memory leaks
   }, [])
 
-  ///////
+  //startTimer function
   const timerRef = React.useRef();
+  const [remainingTime, setRemainingTime] = React.useState(study_time * 60);
+
   React.useEffect(() => {
     return () => clearInterval(timerRef.current);
   }, []);
-  const [remainingTime, setRemainingTime] = React.useState(study_time * 60);
-  
-
-  
+     
   const startTimer = () => {
     clearInterval(timerRef.current);
     setRemainingTime(study_time * 60);
     timerRef.current = setInterval(() => {
       setRemainingTime((remainingTime) => {
-        if (remainingTime - 1 <= 0) {
+        if (remainingTime - 1 <= 0) { // if timer is done
           return 0;
-        } else {
+        } else { //if timer is not done
           return remainingTime - 1;
         };
       });
@@ -47,12 +47,30 @@ function App() {
   const minute = String(Math.floor(remainingTime / 60)).padStart(2, 0);
   const seconds = String(remainingTime % 60).padStart(2, 0);
 
+
+  //restartTimer function
   const restartTimer = () => {
-    //TODO: complete this
     setRemainingTime(study_time*60);
-    clearInterval(timerRef.current)
+    clearInterval(timerRef.current);
   };
 
+  //pauseTimer function 
+  const [paused, setPaused] = React.useState(false); //pause timer hook
+  let saveTime=remainingTime;
+  //TODO: fix timer not immediately toggling between on and off??
+  function toggleTimer(){
+    setPaused(!paused);
+    if (paused){ // if paused, we clear timer and save value
+      startTimer();
+      setRemainingTime(saveTime);
+    } else { //if not paused, we can restart timer with saved value
+      saveTime = remainingTime;
+      clearInterval(timerRef.current);
+    }
+  }
+
+  
+  //TODO: fix timer display so that it syncs with the increase/decrease values
   return (
     <div className="App">
       <div id='Focus-page'>
@@ -74,7 +92,7 @@ function App() {
               <th>
                 <Button className="increase" id='brk-incr' onClick={() => dispatch(incrBrk('break'))}>+</Button>{' '}
                 <Button className="decrease" id='brk-dcr' onClick={() => dispatch(decrBrk('break'))} >-</Button>{' '}
-                <h3>{break_time}:00 break</h3>
+                <h3>{break_time}:00 break</h3> 
               </th>
             </tr>
           </table>
@@ -82,7 +100,8 @@ function App() {
 
           <br></br>
           <div className='together'>
-            <Button className='press' >Pause</Button>
+            <Button className='press' onClick={toggleTimer}>Pause</Button>
+            {console.log(paused)}
             <Button className='press' onClick={startTimer}>Start</Button>
             <Button className='press' onClick={restartTimer}>Restart</Button>
           </div>

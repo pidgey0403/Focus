@@ -1,4 +1,3 @@
-"use strict";
 /* Action creators */
 exports.__esModule = true;
 exports.decrStdy = exports.incrStdy = void 0;

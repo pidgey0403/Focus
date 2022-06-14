@@ -8,11 +8,6 @@ import { incrStdy, decrStdy } from './actions';
 import { date, time } from './date.js';
 import { scrapeSubreddit } from './reddit';
 
-import Mp3 from './alert.mp3';
-
-//TODO: add sound alert when timer is done
-//TODO: error handling for my promises 
-
 function App() {
   const study_time = useSelector(state => state.study);
   const dispatch = useDispatch();
@@ -34,7 +29,8 @@ function App() {
     const interval = setInterval(() => {
       let rand = Math.floor(Math.random() * 5);
       scrapeSubreddit("home")
-        .then((posts) => { setRedditPost(posts[rand].text) });
+        .then((posts) => { setRedditPost(posts[rand].text) })
+        .catch(error => { console.log(`Could not retrieve quote: ${error}`) });
     }, 300000) // 5 minutes
     return () => clearInterval(interval);
   }, [])
@@ -67,7 +63,7 @@ function App() {
           return 0;
         } else { //if timer is not done
           return remainingTime - 1;
-        };
+        }
       });
     }, 1000);
     return () => clearInterval(timerRef.current);
@@ -101,13 +97,14 @@ function App() {
   function toggleTheme() {
     var el = document.body;
     el.classList.toggle("dark-mode");
+    let toggle = document.getElementById('swap');
+    toggle.innerHTML === '\u25D1' ? toggle.innerHTML = '\u25D0' : toggle.innerHTML = '\u25D1';
   }
-
 
   return (
     <div className="App">
       <div id='Focus-page'>
-        <br /><br />
+        <br /><br /><br /><br /><br />
         <h1>Pomodoro Timer</h1>
         <div className='timer-widget'>
           <h3>{date()}</h3>
@@ -124,8 +121,10 @@ function App() {
           <table>
             <tr>
               <th>
-                <Button className="increase" id='stdy-incr' onClick={() => dispatch(incrStdy('study'))}>+</Button>{' '}
                 <Button className="decrease" id='stdy-dcr' onClick={() => dispatch(decrStdy('study'))}>-</Button>{' '}
+              </th>
+              <th>
+                <Button className="increase" id='stdy-incr' onClick={() => dispatch(incrStdy('study'))}>+</Button>{' '}
               </th>
             </tr>
           </table>
@@ -139,12 +138,17 @@ function App() {
           </div>
         </div>
 
-        <div id='space'></div>
-        <Button onClick={toggleTheme}>click to toggle theme</Button>
+        <div class='space'></div>
 
         <div className='quote-widget'>
           <p id='quote'>{redditPost}</p>
         </div>
+
+        <div className="space"></div>
+        <h2 onClick={toggleTheme} id="swap" className="toggle-theme">{'\u25D1'}</h2>
+        <br /><br />
+
+
       </div>
     </div>
   );

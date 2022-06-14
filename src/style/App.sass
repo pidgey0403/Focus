@@ -1,7 +1,7 @@
 $app-bg: #ffffff
 $quote-bg: #e6e6e6
-$decrease: #cd0303
-$increase: #05561b
+$decrease: #c56e6e
+$increase: #70a87f
 
 
 #Focus-page
@@ -18,6 +18,14 @@ $increase: #05561b
     #Focus-page
         background: #202020
         color: white
+    .press
+        color: white
+    .press:hover
+        color: white
+        text-shadow: 2px 3px 5px #d3d3d3ab
+    .quote-widget
+        color: black
+        background: #e6e6e6c7
 
 .quote-widget
     position: relative
@@ -31,8 +39,8 @@ $increase: #05561b
     background: $quote-bg
     border-radius: 100px
 
-#space
-    padding-top: 7%
+.space
+    padding-top: 2%
 
 .timer-widget
     width: 30%
@@ -42,57 +50,54 @@ $increase: #05561b
     
 table
     margin: auto
-    width: 60%
+    width: 47%
+
+h2:hover
+    cursor: pointer
 
 .increase 
     background: $increase
     border: 0
 
 .increase:hover
-    background: #013f11
+    background: #51775b
 
 .decrease
     background: $decrease
     border: 0
 
 .decrease:hover
-    background: #8a1111
+    background: #945252
 
-.press
-    background: #afd4ec
-    border: 0
-    color: black
-    
 .together
     display: inline-flex
     margin: 0
-   
-.paused 
-    border: 1px outset
-    color: #369
-    background: #efefef
-
-.unpaused
-    border: 1px outset
-    color: #369
-    background: #f9d543
 
 .left,.right
     padding: 10%
 
-.start
+.press
+    font-size: 20px
     display: block
-    margin: auto
-    border-radius: 60px
-    background: #94B89C
+    background: none
+    color: black
     border:0
-    padding-left: 5%
-    padding-right: 5%
 
-#author
-    text-align: right
+.press:hover
+    @extend .press
+    color: black
+    text-shadow: 2px 3px 5px rgba(0,0,0,0.5)
+    
+.press:focus, .press:active
+    @extend .press
+    
+.toggle-theme
+    @extend .press
+    margin: auto
+    font-size: 30px
 
-#right 
-    float: right
+.toggle-theme:hover
+    @extend .toggle-theme
+    
 
 

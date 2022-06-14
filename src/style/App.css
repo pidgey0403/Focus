@@ -14,6 +14,17 @@
   background: #202020;
   color: white;
 }
+.dark-mode .press, .dark-mode .toggle-theme {
+  color: white;
+}
+.dark-mode .press:hover, .dark-mode .toggle-theme:hover {
+  color: white;
+  text-shadow: 2px 3px 5px rgba(211, 211, 211, 0.6705882353);
+}
+.dark-mode .quote-widget {
+  color: black;
+  background: rgba(230, 230, 230, 0.7803921569);
+}
 
 .quote-widget {
   position: relative;
@@ -28,8 +39,8 @@
   border-radius: 100px;
 }
 
-#space {
-  padding-top: 7%;
+.space {
+  padding-top: 2%;
 }
 
 .timer-widget {
@@ -41,31 +52,29 @@
 
 table {
   margin: auto;
-  width: 60%;
+  width: 47%;
+}
+
+h2:hover {
+  cursor: pointer;
 }
 
 .increase {
-  background: #05561b;
+  background: #70a87f;
   border: 0;
 }
 
 .increase:hover {
-  background: #013f11;
+  background: #51775b;
 }
 
 .decrease {
-  background: #cd0303;
+  background: #c56e6e;
   border: 0;
 }
 
 .decrease:hover {
-  background: #8a1111;
-}
-
-.press {
-  background: #afd4ec;
-  border: 0;
-  color: black;
+  background: #945252;
 }
 
 .together {
@@ -73,38 +82,26 @@ table {
   margin: 0;
 }
 
-.paused {
-  border: 1px outset;
-  color: #369;
-  background: #efefef;
-}
-
-.unpaused {
-  border: 1px outset;
-  color: #369;
-  background: #f9d543;
-}
-
 .left, .right {
   padding: 10%;
 }
 
-.start {
+.press, .toggle-theme, .toggle-theme:hover, .toggle-theme:focus, .toggle-theme:active, .press:focus, .press:active, .press:hover {
+  font-size: 20px;
   display: block;
-  margin: auto;
-  border-radius: 60px;
-  background: #94B89C;
+  background: none;
+  color: black;
   border: 0;
-  padding-left: 5%;
-  padding-right: 5%;
 }
 
-#author {
-  text-align: right;
+.press:hover, .toggle-theme:hover {
+  color: black;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-#right {
-  float: right;
+.toggle-theme, .toggle-theme:hover {
+  margin: auto;
+  font-size: 30px;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -4,8 +4,8 @@ import './style/App.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { incrStdy, decrStdy } from './actions';
-import { date, time } from './date.js';
+import { incrStdy, decrStdy } from './actions'; 
+import { date, time } from './date';
 import { scrapeSubreddit } from './reddit';
 
 function App() {
@@ -147,8 +147,6 @@ function App() {
         <div className="space"></div>
         <h2 onClick={toggleTheme} id="swap" className="toggle-theme">{'\u25D1'}</h2>
         <br /><br />
-
-
       </div>
     </div>
   );

@@ -1,19 +1,23 @@
 $app-bg: #ffffff
 $quote-bg: #e6e6e6
-$timer-bg: #ffffff7e
-$decrease: #CD0303A1
-$increase: #05561B91
+$decrease: #cd0303
+$increase: #05561b
 
 
 #Focus-page
     height:100vh
     margin: auto
     background: $app-bg
+    text-align: center
  
 #timer-display
     font-family: 'Roboto Mono', monospace
     font-size: 60px
 
+.dark-mode
+    #Focus-page
+        background: #202020
+        color: white
 
 .quote-widget
     position: relative
@@ -26,7 +30,6 @@ $increase: #05561B91
     padding-bottom: 0.5%
     background: $quote-bg
     border-radius: 100px
-    text-align: center
 
 #space
     padding-top: 7%
@@ -34,32 +37,34 @@ $increase: #05561B91
 .timer-widget
     width: 30%
     margin: auto
-    text-align: center
     height: 40%
     padding-top: 1%
-    background: $timer-bg
     
 table
     margin: auto
     width: 60%
 
 .increase 
-    background-color: $increase
+    background: $increase
     border: 0
-    
+
+.increase:hover
+    background: #013f11
 
 .decrease
-    background-color: $decrease
+    background: $decrease
     border: 0
 
+.decrease:hover
+    background: #8a1111
+
 .press
-    background-color: #afd4ec
+    background: #afd4ec
     border: 0
     color: black
     
 .together
     display: inline-flex
-    text-align: center
     margin: 0
    
 .paused 
@@ -79,14 +84,10 @@ table
     display: block
     margin: auto
     border-radius: 60px
-    background-color: #94B89C
+    background: #94B89C
     border:0
     padding-left: 5%
     padding-right: 5%
-
-h1 
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
-    text-align: center
 
 #author
     text-align: right

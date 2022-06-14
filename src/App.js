@@ -4,18 +4,45 @@ import './style/App.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { incrStdy, decrStdy, incrBrk, decrBrk } from './actions';
+import { incrStdy, decrStdy } from './actions';
 import { date, time } from './date.js';
+import { scrapeSubreddit } from './reddit';
+
 import Mp3 from './alert.mp3';
+
+//TODO: add sound alert when timer is done
+//TODO: error handling for my promises 
 
 function App() {
   const study_time = useSelector(state => state.study);
-  const break_time = useSelector(state => state.break);
   const dispatch = useDispatch();
+  const dudQuotes = [
+    "When you have a dream, you’ve got to grab it and never let go. - Carol Burnett",
+    "There is nothing impossible to they who will try. - Alexander the Great",
+    "Spread love everywhere you go. - Mother Teresa",
+    "Perfection is not attainable, but if we chase perfection we can catch excellence. - Vince Lombardi",
+    "No act of kindness, no matter how small, is ever wasted. - Aesop"
+  ];
 
-  //display our time component using a timeout function 
-  const [timer, setCounter] = useState(time());
-  useEffect(() => { // fires on Mount
+  const [active, setActive] = useState(false); // create a state for the display of the time
+
+  // display the results of the reddit API
+  let rand = Math.floor(Math.random() * 5);
+  const [redditPost, setRedditPost] = useState([dudQuotes[rand]]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      let rand = Math.floor(Math.random() * 5);
+      scrapeSubreddit("home")
+        .then((posts) => { setRedditPost(posts[rand].text) });
+    }, 300000) // 5 minutes
+    return () => clearInterval(interval);
+  }, [])
+
+
+  //display the time component using a timeout function 
+  const [timer, setCounter] = useState(time()); // a hook for the timer state
+  useEffect(() => { // fires on mount
     const interval = setInterval(() => {
       setCounter(time());
     }, 1000);
@@ -29,8 +56,9 @@ function App() {
   React.useEffect(() => {
     return () => clearInterval(timerRef.current);
   }, []);
-     
+
   const startTimer = () => {
+    setActive(true);
     clearInterval(timerRef.current);
     setRemainingTime(study_time * 60);
     timerRef.current = setInterval(() => {
@@ -50,17 +78,17 @@ function App() {
 
   //restartTimer function
   const restartTimer = () => {
-    setRemainingTime(study_time*60);
+    setActive(false);
+    setRemainingTime(study_time * 60);
     clearInterval(timerRef.current);
   };
 
   //pauseTimer function 
   const [paused, setPaused] = React.useState(false); //pause timer hook
-  let saveTime=remainingTime;
-  //TODO: fix timer not immediately toggling between on and off??
-  function toggleTimer(){
+  let saveTime = remainingTime;
+  function toggleTimer() {
     setPaused(!paused);
-    if (paused){ // if paused, we clear timer and save value
+    if (paused) { // if paused, we clear timer and save value
       startTimer();
       setRemainingTime(saveTime);
     } else { //if not paused, we can restart timer with saved value
@@ -69,50 +97,53 @@ function App() {
     }
   }
 
-  
-  //TODO: fix timer display so that it syncs with the increase/decrease values
+  //toggleTheme function
+  function toggleTheme() {
+    var el = document.body;
+    el.classList.toggle("dark-mode");
+  }
+
+
   return (
     <div className="App">
       <div id='Focus-page'>
         <br /><br />
-        <h1>Pomodoro Focus</h1>
+        <h1>Pomodoro Timer</h1>
         <div className='timer-widget'>
           <h3>{date()}</h3>
           <h3>{timer}</h3><br />
 
-          <p id="timer-display">{minute}:{seconds}</p><br/>
+          <p id="timer-display">
+            {
+              !active
+                ? study_time + ":" + seconds
+                : minute + ":" + seconds
+            }
+          </p><br />
 
           <table>
             <tr>
               <th>
-              <Button className="increase" id='stdy-incr' onClick={() => dispatch(incrStdy('study'))}>+</Button>{' '}
-              <Button className="decrease" id='stdy-dcr' onClick={() => dispatch(decrStdy('study'))}>-</Button>{' '}
-              <h3>{study_time}:00 study</h3>
-              </th>
-              <th>
-                <Button className="increase" id='brk-incr' onClick={() => dispatch(incrBrk('break'))}>+</Button>{' '}
-                <Button className="decrease" id='brk-dcr' onClick={() => dispatch(decrBrk('break'))} >-</Button>{' '}
-                <h3>{break_time}:00 break</h3> 
+                <Button className="increase" id='stdy-incr' onClick={() => dispatch(incrStdy('study'))}>+</Button>{' '}
+                <Button className="decrease" id='stdy-dcr' onClick={() => dispatch(decrStdy('study'))}>-</Button>{' '}
               </th>
             </tr>
           </table>
-          
+
 
           <br></br>
           <div className='together'>
             <Button className='press' onClick={toggleTimer}>Pause</Button>
-            {console.log(paused)}
             <Button className='press' onClick={startTimer}>Start</Button>
             <Button className='press' onClick={restartTimer}>Restart</Button>
           </div>
         </div>
 
         <div id='space'></div>
+        <Button onClick={toggleTheme}>click to toggle theme</Button>
 
         <div className='quote-widget'>
-          <p id='quote'>“I always did something I was a little not ready to do. I think that’s how you grow. When there’s that moment of
-            ‘Wow, I’m not really sure I can do this,’ and you push through those moments, that’s when you have a breakthrough.”</p>
-          <p id='author'> -u/LoreeKButler</p>
+          <p id='quote'>{redditPost}</p>
         </div>
       </div>
     </div>

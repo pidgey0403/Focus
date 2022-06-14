@@ -2,11 +2,17 @@
   height: 100vh;
   margin: auto;
   background: #ffffff;
+  text-align: center;
 }
 
 #timer-display {
   font-family: "Roboto Mono", monospace;
   font-size: 60px;
+}
+
+.dark-mode #Focus-page {
+  background: #202020;
+  color: white;
 }
 
 .quote-widget {
@@ -20,7 +26,6 @@
   padding-bottom: 0.5%;
   background: #e6e6e6;
   border-radius: 100px;
-  text-align: center;
 }
 
 #space {
@@ -30,10 +35,8 @@
 .timer-widget {
   width: 30%;
   margin: auto;
-  text-align: center;
   height: 40%;
   padding-top: 1%;
-  background: rgba(255, 255, 255, 0.4941176471);
 }
 
 table {
@@ -42,24 +45,31 @@ table {
 }
 
 .increase {
-  background-color: rgba(5, 86, 27, 0.568627451);
+  background: #05561b;
   border: 0;
+}
+
+.increase:hover {
+  background: #013f11;
 }
 
 .decrease {
-  background-color: rgba(205, 3, 3, 0.631372549);
+  background: #cd0303;
   border: 0;
 }
 
+.decrease:hover {
+  background: #8a1111;
+}
+
 .press {
-  background-color: #afd4ec;
+  background: #afd4ec;
   border: 0;
   color: black;
 }
 
 .together {
   display: inline-flex;
-  text-align: center;
   margin: 0;
 }
 
@@ -83,15 +93,10 @@ table {
   display: block;
   margin: auto;
   border-radius: 60px;
-  background-color: #94B89C;
+  background: #94B89C;
   border: 0;
   padding-left: 5%;
   padding-right: 5%;
-}
-
-h1 {
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  text-align: center;
 }
 
 #author {

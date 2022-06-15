@@ -25,6 +25,7 @@ This app was designed as a revision to my original Pomodoro timer that was made 
 - How to write modular and elegant stylesheets using SASS exclusive features such as @import, nested syntax, and variables.
 - The essentials of ReactJS, including differences between functional components and class components, the use of state hooks, and the use of effect hooks for lifecycle methods inside functional components.
 - Successful management of component states using the Redux store, action handlers, and reducer methods.
+- Asynchronous function usage in JavaScript, such as handling pending or resolved promises, in order retrieve data from RESTful APIs like [ssnoowrap]([https://github.com/not-an-aardvark/snoowrap](https://github.com/not-an-aardvark/snoowrap)).
 - How to add thoughtful type annotations to my code to improve readability and catch avoidable runtime errors via implementation of static typing.
 
 *Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*

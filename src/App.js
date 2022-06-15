@@ -12,7 +12,6 @@ import { scrapeSubreddit } from './reddit';
 
 function App() {
   /* Declare function constants */
-
   const study_time = useSelector(state => state.study); // get the study timer attribute from our rootReducer
   const dispatch = useDispatch(); // create dispatch alias 
   const [active, setActive] = useState(false); // create a state to toggle the clock display

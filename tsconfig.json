@@ -16,8 +16,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
-    "forceConsistentCasingInFileNames": true
+    "jsx": "react",
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "useUnknownInCatchVariables": false
+
   },
   "include": [
     "src"

@@ -7,12 +7,12 @@ import {createStore} from 'redux';
 import rootReducer from './reducers';
 import {Provider} from 'react-redux';
 
+const store = createStore(rootReducer); // create redux store, passing in our root reducer
 
-const store = createStore(rootReducer);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+// use Provider to allow us to use state and dispatch to our React components
 root.render(
-  <Provider store={store}>
+  <Provider store={store}> 
     <App/>
   </Provider>
 );

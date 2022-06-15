@@ -1,3 +1,5 @@
+/* Module and package imports */
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import './style/App.css';
@@ -5,84 +7,84 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { incrStdy, decrStdy } from './actions'; 
-import { date, time } from './date';
+import { date, time } from './date'; // custom functions to display the current date and time
 import { scrapeSubreddit } from './reddit';
 
 function App() {
-  const study_time = useSelector(state => state.study);
-  const dispatch = useDispatch();
+  /* Declare function constants */
+
+  const study_time = useSelector(state => state.study); // get the study timer attribute from our rootReducer
+  const dispatch = useDispatch(); // create dispatch alias 
+  const [active, setActive] = useState(false); // create a state to toggle the clock display
+  // array of quotes for initialization of the quote widget state 
   const dudQuotes = [
     "When you have a dream, you’ve got to grab it and never let go. - Carol Burnett",
     "There is nothing impossible to they who will try. - Alexander the Great",
     "Spread love everywhere you go. - Mother Teresa",
     "Perfection is not attainable, but if we chase perfection we can catch excellence. - Vince Lombardi",
     "No act of kindness, no matter how small, is ever wasted. - Aesop"
-  ];
+  ]; 
 
-  const [active, setActive] = useState(false); // create a state for the display of the time
 
-  // display the results of the reddit API
-  let rand = Math.floor(Math.random() * 5);
-  const [redditPost, setRedditPost] = useState([dudQuotes[rand]]);
+  /* Display results of calling Snoowrap, a Reddit API wrapper */
+  let rand = Math.floor(Math.random() * 5); // generate random number within our array length
+  const [redditPost, setRedditPost] = useState([dudQuotes[rand]]); // create a state to handle displaying quotes from Reddit API
 
-  useEffect(() => {
+  useEffect(() => { //effect hook for updating quote widget
     const interval = setInterval(() => {
       let rand = Math.floor(Math.random() * 5);
       scrapeSubreddit("home")
-        .then((posts) => { setRedditPost(posts[rand].text) })
-        .catch(error => { console.log(`Could not retrieve quote: ${error}`) });
-    }, 300000) // 5 minutes
-    return () => clearInterval(interval);
+        .then((posts) => { setRedditPost(posts[rand].text) }) // on successful return from promise, update reddit post state with a random quote
+        .catch(error => { console.log(`Could not retrieve quote: ${error}`) }); // on rejected return from promise, print error
+    }, 300000) // call function after 5 minutes
+    return () => clearInterval(interval); // unmount function to prevent mem. leaks
   }, [])
 
 
-  //display the time component using a timeout function 
-  const [timer, setCounter] = useState(time()); // a hook for the timer state
+  /* Display the current time using a timeout function  */
+  const [timer, setCounter] = useState(time()); // create a state to update the current time
   useEffect(() => { // fires on mount
     const interval = setInterval(() => {
-      setCounter(time());
-    }, 1000);
-    return () => clearInterval(interval); //unmount function to account for memory leaks
+      setCounter(time()); // call the setCounter() function to update the time()
+    }, 1000); // call function after 1 seond
+    return () => clearInterval(interval); // unmount function to prevent mem. leaks
   }, [])
 
-  //startTimer function
-  const timerRef = React.useRef();
-  const [remainingTime, setRemainingTime] = React.useState(study_time * 60);
 
-  React.useEffect(() => {
-    return () => clearInterval(timerRef.current);
-  }, []);
+  /* startTimer() function which manages the study timer */
+  const timerRef = React.useRef();
+  const [remainingTime, setRemainingTime] = React.useState(study_time * 60); // create a state and init it with the current study_time value
 
   const startTimer = () => {
-    setActive(true);
-    clearInterval(timerRef.current);
-    setRemainingTime(study_time * 60);
-    timerRef.current = setInterval(() => {
+    setActive(true); // update state that controls which timer variable to display to user
+    clearInterval(timerRef.current); // clear timer reference object
+    setRemainingTime(study_time * 60); // set timer state 
+    timerRef.current = setInterval(() => { // set timer reference object to setInterval() 
       setRemainingTime((remainingTime) => {
-        if (remainingTime - 1 <= 0) { // if timer is done
+        if (remainingTime - 1 <= 0) { // if timer reaches 0 
           return 0;
-        } else { //if timer is not done
+        } else { //if timer hasn't finished, continue decrementing the remainingTime state property
           return remainingTime - 1;
         }
       });
-    }, 1000);
-    return () => clearInterval(timerRef.current);
+    }, 1000); // call function after 1 second 
+    return () => clearInterval(timerRef.current); // unmount function to prevent mem. leaks
   };
-  const minute = String(Math.floor(remainingTime / 60)).padStart(2, 0);
-  const seconds = String(remainingTime % 60).padStart(2, 0);
+  const minute = String(Math.floor(remainingTime / 60)).padStart(2, 0); // calculate the value of remaining minutes
+  const seconds = String(remainingTime % 60).padStart(2, 0); // calculate the value of remaining seconds
 
 
-  //restartTimer function
+  /* restartTimer() function which will set timer back to initial value*/
   const restartTimer = () => {
-    setActive(false);
-    setRemainingTime(study_time * 60);
+    setActive(false); // update flag that controls timer variable
+    setRemainingTime(study_time * 60); 
     clearInterval(timerRef.current);
   };
 
-  //pauseTimer function 
-  const [paused, setPaused] = React.useState(false); //pause timer hook
-  let saveTime = remainingTime;
-  function toggleTimer() {
+  /* pauseTimer() function which will pause or unpause depending on flag  */
+  const [paused, setPaused] = React.useState(false); // hook/state for pausing the timer, initialized to false
+  let saveTime = remainingTime; // store the current remaining time in a temporary variable
+  function pauseTimer() {
     setPaused(!paused);
     if (paused) { // if paused, we clear timer and save value
       startTimer();
@@ -93,31 +95,34 @@ function App() {
     }
   }
 
-  //toggleTheme function
+  /* toggleTheme() function which will change between light and dark mode */ 
   function toggleTheme() {
     var el = document.body;
-    el.classList.toggle("dark-mode");
+    el.classList.toggle("dark-mode"); // toggle class of object with corresponding class
     let toggle = document.getElementById('swap');
-    toggle.innerHTML === '\u25D1' ? toggle.innerHTML = '\u25D0' : toggle.innerHTML = '\u25D1';
+    toggle.innerHTML === '\u25D1' ? toggle.innerHTML = '\u25D0' : toggle.innerHTML = '\u25D1'; // change the icon of the toggle button, depending on the state
   }
 
   return (
     <div className="App">
-      <div id='Focus-page'>
+      <div id='Homepage'>
         <br /><br /><br /><br /><br />
-        <h1>Pomodoro Timer</h1>
+        <h1>Pomodoro Timer</h1> 
+
+        {/* Timer widget that displays current date and time */}
         <div className='timer-widget'>
           <h3>{date()}</h3>
           <h3>{timer}</h3><br />
 
           <p id="timer-display">
-            {
-              !active
-                ? study_time + ":" + seconds
-                : minute + ":" + seconds
+            { 
+              !active // check if active flag is true or not
+                ? study_time + ":" + seconds // display the study_time variable which shows the initial time 
+                : minute + ":" + seconds // display the minute variable which shows remaining time 
             }
           </p><br />
-
+          
+          {/* Increment and decrement timer buttons */}
           <table>
             <tr>
               <th>
@@ -129,22 +134,23 @@ function App() {
             </tr>
           </table>
 
-
+          {/* Control buttons for timer state */}
           <br></br>
           <div className='together'>
-            <Button className='press' onClick={toggleTimer}>Pause</Button>
+            <Button className='press' onClick={pauseTimer}>Pause</Button>
             <Button className='press' onClick={startTimer}>Start</Button>
             <Button className='press' onClick={restartTimer}>Restart</Button>
           </div>
         </div>
-
         <div class='space'></div>
-
+          
+        {/* Quote widget */}
         <div className='quote-widget'>
           <p id='quote'>{redditPost}</p>
         </div>
-
         <div className="space"></div>
+
+        {/* Toggle theme button */}
         <h2 onClick={toggleTheme} id="swap" className="toggle-theme">{'\u25D1'}</h2>
         <br /><br />
       </div>

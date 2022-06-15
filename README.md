@@ -30,4 +30,4 @@ This app was designed as a revision to my original Pomodoro timer that was made 
 
 *Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
 
-*Hosted with [Firebase](https://firebase.google.com/)*
+*Hosted on [Firebase](https://firebase.google.com/)*

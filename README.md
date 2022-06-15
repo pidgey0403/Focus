@@ -1,6 +1,6 @@
 # Focus ⏰
 
-### A streamlined & user-friendly study-aid designed to bring focus to students’ messy lives
+### A streamlined & user-friendly study-aid designed to bring **focus** to students’ messy lives
 
 ---
 

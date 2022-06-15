@@ -16,3 +16,4 @@ This project was designed as a revision to my original pomodoro timer which was 
   <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> 
 
 *This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
+*Hosted with [Firebase](https://firebase.google.com/)*

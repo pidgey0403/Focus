@@ -1,19 +1,31 @@
-# Pearl
-## A simple study-timer app designed to bring organization to students messy lives.
+# Focus ⏰
 
-This project was designed as a revision to my original pomodoro timer which was made with vanilla HTML/CSS and Javascript. After learning more about front-end web development I thought it apt to build an improved version using a framework like React.js, and further build my competency with other tools such as Redux and Typescript. 
+### A streamlined & user-friendly study-aid designed to bring focus to students’ messy lives
 
-### Features
-- dynamic motivation quotes fetched using Reddit's RESTful API
+---
+
+This app was designed as a revision to my original Pomodoro timer that was made solely with HTML/CSS and Javascript. My newfound competency in front-end web development frameworks like React.js, and languages like TypeScript & SASS, allowed me to re-innovate my ideas and deliver a more complete product. 
+
+## Features 🤖
+
 - light and dark themes for user comfort
-- customizable study durations to suit your study-habits
+- customizable study durations to suit personal concentration patterns
+- dynamic motivational quotes fetched using Reddit's RESTful API
 
-### Technologies and Frameworks
-   <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/></a> 
-  <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> 
-  <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> 
-  <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> 
-  <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> 
+## Technologies and Frameworks 💻
+
+- Bootstrap 5.1
+- SASS 1.52.3
+- ReactJS 18.1.0
+- React Redux 8.0
+- TypeScript 4.7.3
+
+## What I Learnt 📚
+
+- How to write modular and elegant stylesheets using SASS exclusive features such as @import, nested syntax, and variables
+- The essentials of ReactJS, including differences between functional components and class components, and the use of state hooks and effect hooks for lifecycle methods inside functional components.
+- Successful management of component states using the Redux store, action handlers, and reducer methods.
+- How to add thoughtful type annotations to my code to improve readability and catch avoidable runtime errors via implementation of static typing.
 
 *Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
 

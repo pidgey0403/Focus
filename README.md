@@ -4,9 +4,9 @@
 This project was designed as a revision to my original pomodoro timer which was made with vanilla HTML/CSS and Javascript. After learning more about front-end web development I thought it apt to build an improved version using a framework like React.js, and further build my competency with other tools such as Redux and Typescript. 
 
 ### Features
-- dynamic inspiriational quotes fetched using Reddit's RESTful API
-- toggleable light or dark themes
-- user customizable study cycle durations
+- dynamic motivation quotes fetched using Reddit's RESTful API
+- light and dark themes for user comfort
+- customizable study durations to suit your study-habits
 
 ### Technologies and Frameworks
    <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/></a> 

@@ -1,20 +1,24 @@
 #Homepage {
   height: 100vh;
-  margin: auto;
+  margin: 0 auto;
   background: #ffffff;
   text-align: center;
 }
 
-#timer-display {
-  font-family: "Roboto Mono", monospace;
-  font-size: 60px;
+button.toggle-theme, button.toggle-theme:hover, button.toggle-theme:focus {
+  width: 40px;
+  height: 40px;
+  size: 30px;
 }
 
-.dark-mode #Focus-page {
+.dark-mode #Homepage {
   background: #202020;
   color: white;
 }
-.dark-mode .press, .dark-mode .toggle-theme {
+.dark-mode button.toggle-theme:hover {
+  color: white;
+}
+.dark-mode .press, .dark-mode .toggle-theme, .dark-mode button.toggle-theme:focus {
   color: white;
 }
 .dark-mode .press:hover, .dark-mode .toggle-theme:hover {
@@ -27,7 +31,6 @@
 }
 
 .quote-widget {
-  position: relative;
   width: 40%;
   height: auto;
   margin: auto;
@@ -46,17 +49,17 @@
 .timer-widget {
   width: 30%;
   margin: auto;
-  height: 40%;
+  height: auto;
   padding-top: 1%;
 }
 
-table {
-  margin: auto;
-  width: 47%;
+#timer-display {
+  font-family: "Roboto Mono", monospace;
+  font-size: 60px;
 }
 
-h2:hover {
-  cursor: pointer;
+.together {
+  display: block;
 }
 
 .increase {
@@ -77,29 +80,23 @@ h2:hover {
   background: #945252;
 }
 
-.together {
-  display: inline-flex;
-  margin: 0;
-}
-
 .left, .right {
   padding: 10%;
 }
 
-.press, .toggle-theme, .toggle-theme:hover, .toggle-theme:focus, .toggle-theme:active, .press:focus, .press:active, .press:hover {
+.press, .toggle-theme, .toggle-theme:hover, button.toggle-theme:focus, .toggle-theme:focus, .toggle-theme:active, .press:focus, .press:active, .press:hover {
   font-size: 20px;
-  display: block;
   background: none;
   color: black;
   border: 0;
 }
 
-.press:hover, .toggle-theme:hover {
+.press:hover, .toggle-theme:hover, button.toggle-theme:hover:focus {
   color: black;
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.toggle-theme, .toggle-theme:hover {
+.toggle-theme, .toggle-theme:hover, button.toggle-theme:focus {
   margin: auto;
   font-size: 30px;
 }

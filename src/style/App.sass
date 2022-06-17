@@ -6,17 +6,24 @@ $increase: #70a87f
 
 #Homepage
     height:100vh
-    margin: auto
+    margin: 0 auto
     background: $app-bg
     text-align: center
- 
-#timer-display
-    font-family: 'Roboto Mono', monospace
-    font-size: 60px
+    
+
+button.toggle-theme
+    width: 40px
+    height: 40px
+    size: 30px
+
+button.toggle-theme:focus
+    @extend .toggle-theme
 
 .dark-mode
-    #Focus-page
+    #Homepage
         background: #202020
+        color: white
+    button.toggle-theme:hover
         color: white
     .press
         color: white
@@ -28,7 +35,6 @@ $increase: #70a87f
         background: #e6e6e6c7
 
 .quote-widget
-    position: relative
     width: 40%
     height: auto
     margin: auto
@@ -45,15 +51,15 @@ $increase: #70a87f
 .timer-widget
     width: 30%
     margin: auto
-    height: 40%
+    height: auto
     padding-top: 1%
-    
-table
-    margin: auto
-    width: 47%
 
-h2:hover
-    cursor: pointer
+#timer-display
+    font-family: 'Roboto Mono', monospace
+    font-size: 60px
+
+.together
+    display: block
 
 .increase 
     background: $increase
@@ -69,16 +75,11 @@ h2:hover
 .decrease:hover
     background: #945252
 
-.together
-    display: inline-flex
-    margin: 0
-
 .left,.right
     padding: 10%
 
 .press
     font-size: 20px
-    display: block
     background: none
     color: black
     border:0

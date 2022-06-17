@@ -6,13 +6,12 @@ import './style/App.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { incrStdy, decrStdy } from './actions'; 
+import { incrStdy, decrStdy } from './actions';
 import { date, time } from './date'; // custom functions to display the current date and time
 import { scrapeSubreddit } from './reddit';
 
 function App() {
   /* Declare function constants */
-
   const study_time = useSelector(state => state.study); // get the study timer attribute from our rootReducer
   const dispatch = useDispatch(); // create dispatch alias 
   const [active, setActive] = useState(false); // create a state to toggle the clock display
@@ -23,7 +22,7 @@ function App() {
     "Spread love everywhere you go. - Mother Teresa",
     "Perfection is not attainable, but if we chase perfection we can catch excellence. - Vince Lombardi",
     "No act of kindness, no matter how small, is ever wasted. - Aesop"
-  ]; 
+  ];
 
 
   /* Display results of calling Snoowrap, a Reddit API wrapper */
@@ -77,7 +76,7 @@ function App() {
   /* restartTimer() function which will set timer back to initial value*/
   const restartTimer = () => {
     setActive(false); // update flag that controls timer variable
-    setRemainingTime(study_time * 60); 
+    setRemainingTime(study_time * 60);
     clearInterval(timerRef.current);
   };
 
@@ -95,7 +94,7 @@ function App() {
     }
   }
 
-  /* toggleTheme() function which will change between light and dark mode */ 
+  /* toggleTheme() function which will change between light and dark mode */
   function toggleTheme() {
     var el = document.body;
     el.classList.toggle("dark-mode"); // toggle class of object with corresponding class
@@ -106,8 +105,9 @@ function App() {
   return (
     <div className="App">
       <div id='Homepage'>
-        <br /><br /><br /><br /><br />
-        <h1>Pomodoro Timer</h1> 
+        <div id='header space' />
+        <div className='space'></div>
+        <h1><u>Focus</u></h1>
 
         {/* Timer widget that displays current date and time */}
         <div className='timer-widget'>
@@ -115,35 +115,28 @@ function App() {
           <h3>{timer}</h3><br />
 
           <p id="timer-display">
-            { 
+            {
               !active // check if active flag is true or not
                 ? study_time + ":" + seconds // display the study_time variable which shows the initial time 
                 : minute + ":" + seconds // display the minute variable which shows remaining time 
             }
-          </p><br />
-          
+          </p>
+
           {/* Increment and decrement timer buttons */}
-          <table>
-            <tr>
-              <th>
-                <Button className="decrease" id='stdy-dcr' onClick={() => dispatch(decrStdy('study'))}>-</Button>{' '}
-              </th>
-              <th>
-                <Button className="increase" id='stdy-incr' onClick={() => dispatch(incrStdy('study'))}>+</Button>{' '}
-              </th>
-            </tr>
-          </table>
+          <div className='together'>
+            <Button className="decrease" id='stdy-dcr' onClick={() => dispatch(decrStdy('study'))}>-</Button>{' '}
+            <Button className="increase" id='stdy-incr' onClick={() => dispatch(incrStdy('study'))}>+</Button>{' '}
+          </div>
 
           {/* Control buttons for timer state */}
-          <br></br>
           <div className='together'>
             <Button className='press' onClick={pauseTimer}>Pause</Button>
             <Button className='press' onClick={startTimer}>Start</Button>
             <Button className='press' onClick={restartTimer}>Restart</Button>
           </div>
-        </div>
-        <div class='space'></div>
-          
+          <div className='space'></div>
+        </div><br/>
+
         {/* Quote widget */}
         <div className='quote-widget'>
           <p id='quote'>{redditPost}</p>
@@ -151,8 +144,9 @@ function App() {
         <div className="space"></div>
 
         {/* Toggle theme button */}
-        <h2 onClick={toggleTheme} id="swap" className="toggle-theme">{'\u25D1'}</h2>
-        <br /><br />
+        <div className='theme-widget'>
+          <button onClick={toggleTheme} id="swap" className="toggle-theme">{'\u25D1'}</button>
+        </div>
       </div>
     </div>
   );

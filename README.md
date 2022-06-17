@@ -1,18 +1,33 @@
-# Pearl
-## A simple study-timer app designed to bring organization to students messy lives.
+# Focus ⏰
 
-This project was designed as a revision to my original pomodoro timer which was made with vanilla HTML/CSS and Javascript. After learning more about front-end web development I thought it apt to build an improved version using a framework like React.js, and further build my competency with other tools such as Redux and Typescript. 
+### A streamlined, user-friendly study-aid designed to bring **focus** to students’ messy lives
 
-### Features
-- dynamic inspiriational quotes fetched using Reddit's RESTful API
-- toggleable light or dark themes
-- user customizable study cycle durations
+---
 
-### Technologies and Frameworks
-   <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/></a> 
-  <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> 
-  <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> 
-  <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> 
-  <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> 
+This app was designed as a revision to my original Pomodoro timer that was made solely with HTML/CSS and Javascript. My newfound competency in front-end web development frameworks like React.js, and languages like TypeScript & SASS, allowed me to re-innovate my ideas and deliver a more complete product. 
 
-*This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
+## Features 🤖
+
+- light and dark themes for user comfort
+- customizable study durations to suit personal concentration patterns
+- dynamic motivational quotes fetched using Reddit's RESTful API
+
+## Technologies and Frameworks 💻
+
+- [Bootstrap 5.1](https://getbootstrap.com/)
+- [SASS 1.52.3](https://sass-lang.com/)
+- [ReactJS 18.1.0](https://reactjs.org/)
+- [React Redux 8.0](https://react-redux.js.org/)
+- [TypeScript 4.7.3](https://www.typescriptlang.org/)
+
+## What I Learnt 📚
+
+- How to write modular and elegant stylesheets using SASS exclusive features such as @import, nested syntax, and variables.
+- The essentials of ReactJS, including differences between functional components and class components, the use of state hooks, and the use of effect hooks for lifecycle methods inside functional components.
+- Successful management of component states using the Redux store, action handlers, and reducer methods.
+- Asynchronous function usage in JavaScript, such as handling pending or resolved promises, in order retrieve data from RESTful APIs like [ssnoowrap]([https://github.com/not-an-aardvark/snoowrap](https://github.com/not-an-aardvark/snoowrap)).
+- How to add thoughtful type annotations to my code to improve readability and catch avoidable runtime errors via implementation of static typing.
+
+*Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
+
+*Hosted on [Firebase](https://firebase.google.com/)*

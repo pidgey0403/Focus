@@ -1,13 +1,13 @@
 const snoowrap = require("snoowrap") ; // import snoowrap, a JS wrapper for Reddit's API
 
 // Personal OAuth credentials: replace with your own if testing
-const ID = '5BA1k2wQkIFiRuJYfQvZ3w';
-const secret = '29Bkv0WFw9bLNL9AwXHo8xP56gX5Nw';
-const token = '71495886-JpK7WW1PxiRmfS_8yhc-uYiyIGUbJQ';
+const ID = '';
+const secret = '';
+const token = '';
 
 export const scrapeSubreddit = async () => { // create async function; allows us to create asynchronous requests
     const r = new snoowrap({ // make snoowrap object
-        userAgent: 'pidge',
+        userAgent: '',
         clientId: ID,
         clientSecret: secret,
         refreshToken: token

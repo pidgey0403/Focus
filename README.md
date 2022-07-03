@@ -3,8 +3,7 @@
 ### A streamlined, user-friendly study-aid designed to bring **focus** to students’ messy lives
 
 ---
-
-This app was designed as a revision to my original Pomodoro timer that was made solely with HTML/CSS and Javascript. My newfound competency in front-end web development frameworks like React.js, and languages like TypeScript & SASS, allowed me to re-innovate my ideas and deliver a more complete product for use in a classroom setting, with younger students. 
+This app was designed for use in classroom settings with younger students who struggled with efficient time management skills. As an easy-to-use, self-contained web application, Focus allows users to customize a study duration and track remaining time, so that they can effectively stay on top of their studies. Built with React.js, Redux, TypeScript, and SCSS.
 
 ## Features 🤖
 

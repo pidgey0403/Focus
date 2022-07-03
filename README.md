@@ -4,12 +4,9 @@
 
 ---
 
-This app was designed as a revision to my original Pomodoro timer that was made solely with HTML/CSS and Javascript. My newfound competency in front-end web development frameworks like React.js, and languages like TypeScript & SASS, allowed me to re-innovate my ideas and deliver a more complete product. 
+This app was designed as a revision to my original Pomodoro timer that was made solely with HTML/CSS and Javascript. My newfound competency in front-end web development frameworks like React.js, and languages like TypeScript & SASS, allowed me to re-innovate my ideas and deliver a more complete product for use in a classroom setting, with younger students. 
 
 ## Features 🤖
-
-
-
 
 - light and dark themes for user comfort
 - customizable study durations to suit personal concentration patterns

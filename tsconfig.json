@@ -16,11 +16,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "useUnknownInCatchVariables": false
-
   },
   "include": [
     "src"

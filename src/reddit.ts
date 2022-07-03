@@ -1,16 +1,13 @@
 const snoowrap = require("snoowrap") ; // import snoowrap, a JS wrapper for Reddit's API
+import auth from './config.json' // import reddit API credentials
 
-// Personal OAuth credentials: replace with your own if testing
-const ID = '';
-const secret = '';
-const token = '';
 
 export const scrapeSubreddit = async () => { // create async function; allows us to create asynchronous requests
     const r = new snoowrap({ // make snoowrap object
         userAgent: '',
-        clientId: ID,
-        clientSecret: secret,
-        refreshToken: token
+        clientId: auth.id,
+        clientSecret: auth.secret,
+        refreshToken: auth.token
     });
 
     const post = await r.getSubreddit("quotes").getTop({time: 'week',limit:5}); // grab 5 top posts from subreddit "quotes"

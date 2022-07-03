@@ -2,7 +2,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-import './style/App.css';
+import './compiled/style/App.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';

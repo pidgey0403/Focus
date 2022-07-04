@@ -32,7 +32,7 @@ function App() {
   useEffect(() => { //effect hook for updating quote widget
     const interval = setInterval(() => {
       let rand = Math.floor(Math.random() * 5);
-      scrapeSubreddit("home")
+      scrapeSubreddit()
         .then((posts) => { setRedditPost(posts[rand].text) }) // on successful return from promise, update reddit post state with a random quote
         .catch(error => { console.log(`Could not retrieve quote: ${error}`) }); // on rejected return from promise, print error
     }, 300000) // call function after 5 minutes

@@ -7,7 +7,7 @@
 /build
 /firebase
 /src/compiled
-/src/firebaseConfig.ts
+/src/firebaseConfig.js
 /src/config.json
 
 # misc

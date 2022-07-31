@@ -8,7 +8,7 @@ import rootReducer from './reducers';
 import {Provider} from 'react-redux';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {firebaseConfig} from './firebaseConfig.ts' // import .gitignored file with credentials
+import {firebaseConfig} from './firebaseConfig.js' // import .gitignored file with credentials
 
 const store = createStore(rootReducer); // create redux store, passing in our root reducer
 

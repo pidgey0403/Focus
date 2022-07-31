@@ -7,48 +7,14 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { incrStdy, decrStdy } from './actions';
-import { date, time } from './date'; // custom functions to display the current date and time
-import { scrapeSubreddit } from './reddit';
+import RedditComponent from './components/RedditComponent/RedditComponent';
+import DateTimeComponent from './components/DateTimeComponent/DateTimeComponent';
 
 function App() {
   /* Declare function constants */
   const study_time = useSelector(state => state.study); // get the study timer attribute from our rootReducer
   const dispatch = useDispatch(); // create dispatch alias 
   const [active, setActive] = useState(false); // create a state to toggle the clock display
-  // array of quotes for initialization of the quote widget state 
-  const dudQuotes = [
-    "When you have a dream, you’ve got to grab it and never let go. - Carol Burnett",
-    "There is nothing impossible to they who will try. - Alexander the Great",
-    "Spread love everywhere you go. - Mother Teresa",
-    "Perfection is not attainable, but if we chase perfection we can catch excellence. - Vince Lombardi",
-    "No act of kindness, no matter how small, is ever wasted. - Aesop"
-  ];
-
-
-  /* Display results of calling Snoowrap, a Reddit API wrapper */
-  let rand = Math.floor(Math.random() * 5); // generate random number within our array length
-  const [redditPost, setRedditPost] = useState([dudQuotes[rand]]); // create a state to handle displaying quotes from Reddit API
-
-  useEffect(() => { //effect hook for updating quote widget
-    const interval = setInterval(() => {
-      let rand = Math.floor(Math.random() * 5);
-      scrapeSubreddit()
-        .then((posts) => { setRedditPost(posts[rand].text) }) // on successful return from promise, update reddit post state with a random quote
-        .catch(error => { console.log(`Could not retrieve quote: ${error}`) }); // on rejected return from promise, print error
-    }, 300000) // call function after 5 minutes
-    return () => clearInterval(interval); // unmount function to prevent mem. leaks
-  }, [])
-
-
-  /* Display the current time using a timeout function  */
-  const [timer, setCounter] = useState(time()); // create a state to update the current time
-  useEffect(() => { // fires on mount
-    const interval = setInterval(() => {
-      setCounter(time()); // call the setCounter() function to update the time()
-    }, 1000); // call function after 1 seond
-    return () => clearInterval(interval); // unmount function to prevent mem. leaks
-  }, [])
-
 
   /* startTimer() function which manages the study timer */
   const timerRef = React.useRef();
@@ -111,8 +77,7 @@ function App() {
 
         {/* Timer widget that displays current date and time */}
         <div className='timer-widget'>
-          <h3>{date()}</h3>
-          <h3>{timer}</h3><br />
+          <DateTimeComponent/>
 
           <p id="timer-display">
             {
@@ -137,11 +102,7 @@ function App() {
           <div className='space'></div>
         </div><br/>
 
-        {/* Quote widget */}
-        <div className='quote-widget'>
-          <p id='quote'>{redditPost}</p>
-        </div>
-        <div className="space"></div>
+        <RedditComponent/>
 
         {/* Toggle theme button */}
         <div className='theme-widget'>

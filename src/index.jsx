@@ -1,25 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './compiled/style/index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {createStore} from 'redux';
-import rootReducer from './reducers';
-import {Provider} from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createStore } from "redux";
+import rootReducer from "./reducers";
+import { Provider } from "react-redux";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {firebaseConfig} from './firebaseConfig.ts' // import .gitignored file with credentials
+import { firebaseConfig } from "./firebaseConfig.js"; // import .gitignored file with credentials
 
 const store = createStore(rootReducer); // create redux store, passing in our root reducer
 
-const root = ReactDOM.createRoot(document.getElementById('root')); 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 // use Provider to allow us to use state and dispatch to our React components
 root.render(
-  <Provider store={store}> 
-    <App/>
+  <Provider store={store}>
+    <App />
   </Provider>
 );
-
 
 // Initialize Firebase
 initializeApp(firebaseConfig);

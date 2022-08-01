@@ -1,19 +1,18 @@
 /* Module and package imports */
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
-import './compiled/style/App.css';
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { incrStdy, decrStdy } from './actions';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import RedditComponent from './components/RedditComponent/RedditComponent';
 import DateTimeComponent from './components/DateTimeComponent/DateTimeComponent';
+import ButtonComponent from './components/ButtonComponent/ButtonComponent';
+import TimerComponent from './components/TimerComponent/TimerComponent';
+import TimerButtonComponent from './components/TimerButtonComponent/TimerButtonComponent';
+import PageModal from './components/PageModal/PageModal';
 
 function App() {
   /* Declare function constants */
   const study_time = useSelector(state => state.study); // get the study timer attribute from our rootReducer
-  const dispatch = useDispatch(); // create dispatch alias 
   const [active, setActive] = useState(false); // create a state to toggle the clock display
 
   /* startTimer() function which manages the study timer */
@@ -69,47 +68,31 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div id='Homepage'>
-        <div id='header space' />
-        <div className='space'></div>
-        <h1><u>Focus</u></h1>
+    <PageModal>
+      {/* Timer widget that displays current date and time */}
+      <DateTimeComponent />
 
-        {/* Timer widget that displays current date and time */}
-        <div className='timer-widget'>
-          <DateTimeComponent/>
+      <TimerComponent
+        active={active}
+        study_time={study_time}
+        seconds={seconds}
+        minute={minute}
+      />
 
-          <p id="timer-display">
-            {
-              !active // check if active flag is true or not
-                ? study_time + ":" + seconds // display the study_time variable which shows the initial time 
-                : minute + ":" + seconds // display the minute variable which shows remaining time 
-            }
-          </p>
+      {/* Control timer buttons */}
+      <ButtonComponent />
 
-          {/* Increment and decrement timer buttons */}
-          <div className='together'>
-            <Button className="decrease" id='stdy-dcr' onClick={() => dispatch(decrStdy('study'))}>-</Button>{' '}
-            <Button className="increase" id='stdy-incr' onClick={() => dispatch(incrStdy('study'))}>+</Button>{' '}
-          </div>
+      {/* Control buttons for timer state */}
+      <TimerButtonComponent start={startTimer} pause={pauseTimer} restart={restartTimer} />
 
-          {/* Control buttons for timer state */}
-          <div className='together'>
-            <Button className='press' onClick={pauseTimer}>Pause</Button>
-            <Button className='press' onClick={startTimer}>Start</Button>
-            <Button className='press' onClick={restartTimer}>Restart</Button>
-          </div>
-          <div className='space'></div>
-        </div><br/>
+      <RedditComponent />
 
-        <RedditComponent/>
+      {/* Toggle theme button */}
+      {/* <div className='theme-widget'>
+        <button onClick={toggleTheme} id="swap" className="toggle-theme">{'\u25D1'}</button>
+      </div> */}
 
-        {/* Toggle theme button */}
-        <div className='theme-widget'>
-          <button onClick={toggleTheme} id="swap" className="toggle-theme">{'\u25D1'}</button>
-        </div>
-      </div>
-    </div>
+    </PageModal>
   );
 }
 

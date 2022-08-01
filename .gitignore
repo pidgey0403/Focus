@@ -6,7 +6,6 @@
 # production
 /build
 /firebase
-/src/compiled
 /src/firebaseConfig.js
 /src/config.json
 

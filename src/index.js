@@ -20,7 +20,6 @@ root.render(
   </Provider>
 );
 
-
 // Initialize Firebase
 initializeApp(firebaseConfig);
 

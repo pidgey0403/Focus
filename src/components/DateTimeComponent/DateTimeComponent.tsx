@@ -14,7 +14,7 @@ const DateTimeComponent = () =>{
     return(
         <div>
           <h3>{date()}</h3>
-          <h3>{timer}</h3><br />
+          <h3>{timer}</h3>
         </div>
     );
 };

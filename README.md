@@ -15,10 +15,10 @@ Click the link to see the app in action ---> https://focus-101.web.app/
 
 ## Technologies and Frameworks 💻
 
-- [Bootstrap 5.1](https://getbootstrap.com/)
-- [ReactJS 18.1.0](https://reactjs.org/)
-- [React Redux 8.0](https://react-redux.js.org/)
-- [TypeScript 4.7.3](https://www.typescriptlang.org/)
+- [Bootstrap](https://getbootstrap.com/)
+- [ReactJS](https://reactjs.org/)
+- [React Redux](https://react-redux.js.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## What I Learnt 📚
 

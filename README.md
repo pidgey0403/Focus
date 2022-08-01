@@ -19,6 +19,8 @@ Click the link to see the app in action ---> https://focus-101.web.app/
 - [React Redux](https://react-redux.js.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Styled Components](https://styled-components.com/) 
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
 
 ## What I Learnt 📚
 
@@ -27,6 +29,7 @@ Click the link to see the app in action ---> https://focus-101.web.app/
 - Successful management of component states using the **Redux** store, action handlers, and reducer methods.
 - Asynchronous function usage in JavaScript, such as handling pending or resolved promises to retrieve data from RESTful APIs like [ssnoowrap](<[https://github.com/not-an-aardvark/snoowrap](https://github.com/not-an-aardvark/snoowrap)>).
 - How to use **TypeScript** to add static type checking to my code, improve readability, and catch compile time errors.
+- Code formatting best practices to prevent merge conflicts and fix problems quickly using **Prettier** and **ESLint**.
 
 _Bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
 

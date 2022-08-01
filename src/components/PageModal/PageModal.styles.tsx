@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import img from "/Users/alexn/Documents/GitHub/Focus/src/background.jpg";
 
-
 export const StyledModal = styled.div`
   width: 45%;
   margin: 0 auto;
   text-align: center;
   padding: 15px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
   justify-content: center;
   align-items: center;
@@ -17,7 +18,7 @@ export const StyledModal = styled.div`
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  
+
   background: #364156;
   color: white;
   opacity: 1;
@@ -30,7 +31,7 @@ export const StyledModal = styled.div`
 export const Background = styled.div`
   width: 100%;
   height: 100vh;
-  background: #9DA9A0;
+  background: #9da9a0;
   background-image: url(${img});
   background-size: 100% 100%;
 `;

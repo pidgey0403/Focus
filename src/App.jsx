@@ -27,7 +27,6 @@ function App() {
       // set timer reference object to setInterval()
       setRemainingTime((remainingTime) => {
         if (remainingTime - 1 <= 0) {
-          // if timer reaches 0
           return 0;
         } else {
           //if timer hasn't finished, continue decrementing the remainingTime state property
@@ -53,7 +52,6 @@ function App() {
   function pauseTimer() {
     setPaused(!paused);
     if (paused) {
-      // if paused, we clear timer and save value
       startTimer();
       setRemainingTime(saveTime);
     } else {
@@ -63,21 +61,12 @@ function App() {
     }
   }
 
-  /* toggleTheme() function which will change between light and dark mode */
-  function toggleTheme() {
-    var el = document.body;
-    el.classList.toggle("dark-mode"); // toggle class of object with corresponding class
-    let toggle = document.getElementById("swap");
-    toggle.innerHTML === "\u25D1"
-      ? (toggle.innerHTML = "\u25D0")
-      : (toggle.innerHTML = "\u25D1"); // change the icon of the toggle button, depending on the state
-  }
-
   return (
     <PageModal>
-      {/* Timer widget that displays current date and time */}
+      {/* Displays current date and time */}
       <DateTimeComponent />
 
+      {/* Displays live study time duration  */}
       <TimerComponent
         active={active}
         study_time={study_time}
@@ -85,7 +74,7 @@ function App() {
         minute={minute}
       />
 
-      {/* Control timer buttons */}
+      {/* Increase and decrease timer buttons */}
       <ButtonComponent />
 
       {/* Control buttons for timer state */}
@@ -95,12 +84,8 @@ function App() {
         restart={restartTimer}
       />
 
+      {/* Reddit quotes */}
       <RedditComponent />
-
-      {/* Toggle theme button */}
-      {/* <div className='theme-widget'>
-        <button onClick={toggleTheme} id="swap" className="toggle-theme">{'\u25D1'}</button>
-      </div> */}
     </PageModal>
   );
 }

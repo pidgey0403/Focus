@@ -8,7 +8,7 @@ export const StyledRedditComponent = styled.div`
   padding-right: 5%;
   padding-top: 1%;
   padding-bottom: 1%;
-  background: #212d40;
+  background: #323232;
   border-radius: 100px;
   color: white;
 `;

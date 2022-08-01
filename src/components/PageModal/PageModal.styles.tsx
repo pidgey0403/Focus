@@ -19,7 +19,7 @@ export const StyledModal = styled.div`
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 
-  background: #364156;
+  background: #282828;
   color: white;
   opacity: 1;
   mix-blend-mode: normal;

@@ -13,5 +13,7 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "semi": [2, "always"]
+  }
 }

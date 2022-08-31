@@ -1,7 +1,7 @@
 /* Module and package imports */
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import RedditComponent from "./components/RedditComponent/RedditComponent";
 import DateTimeComponent from "./components/DateTimeComponent/DateTimeComponent";
@@ -16,8 +16,8 @@ function App() {
   const [active, setActive] = useState(false); // create a state to toggle the clock display
 
   /* startTimer() function which manages the study timer */
-  const timerRef = React.useRef();
-  const [remainingTime, setRemainingTime] = React.useState(study_time * 60); // create a state and init it with the current study_time value
+  const timerRef = useRef();
+  const [remainingTime, setRemainingTime] = useState(study_time * 60); // create a state and init it with the current study_time value
 
   const startTimer = () => {
     setActive(true); // update state that controls which timer variable to display to user
@@ -47,7 +47,7 @@ function App() {
   };
 
   /* pauseTimer() function which will pause or unpause depending on flag  */
-  const [paused, setPaused] = React.useState(false); // hook/state for pausing the timer, initialized to false
+  const [paused, setPaused] = useState(false); // hook/state for pausing the timer, initialized to false
   let saveTime = remainingTime; // store the current remaining time in a temporary variable
   function pauseTimer() {
     setPaused(!paused);

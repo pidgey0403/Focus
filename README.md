@@ -2,7 +2,6 @@
 
 ### A streamlined, user-friendly study-aid designed to bring **focus** to students’ messy lives
 
-
 This app was designed for use in classroom settings with younger students who struggled with efficient time management skills. As an easy-to-use and self-contained web application, Focus allows users to customize a study duration and track remaining time so that they can effectively stay on top of their studies. Built with React.js, Redux, and TypeScript.
 
 Click the link to see the app in action ---> https://focus-101.web.app/
@@ -18,7 +17,7 @@ Click the link to see the app in action ---> https://focus-101.web.app/
 - [ReactJS](https://reactjs.org/)
 - [React Redux](https://react-redux.js.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Styled Components](https://styled-components.com/) 
+- [Styled Components](https://styled-components.com/)
 - [Prettier](https://prettier.io/)
 - [ESLint](https://eslint.org/)
 

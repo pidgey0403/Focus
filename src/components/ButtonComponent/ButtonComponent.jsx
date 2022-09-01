@@ -7,8 +7,8 @@ const ButtonComponent = () => {
   const dispatch = useDispatch();
   return (
     <Container>
-      <DecreaseBtn onClick={() => dispatch(decrStdy("study"))}>-</DecreaseBtn>{" "}
-      <IncreaseBtn onClick={() => dispatch(incrStdy("study"))}>+</IncreaseBtn>
+      <DecreaseBtn onClick={() => dispatch(decrStdy())}>-</DecreaseBtn>{" "}
+      <IncreaseBtn onClick={() => dispatch(incrStdy())}>+</IncreaseBtn>
     </Container>
   );
 };

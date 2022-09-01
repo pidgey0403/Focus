@@ -11,7 +11,7 @@ import TimerButtonComponent from "./components/TimerButtonComponent/TimerButtonC
 import PageModal from "./components/PageModal/PageModal";
 
 function App() {
-  /* Declare function constants */
+  /* Declare constants */
   const study_time = useSelector((state) => state.study); // get the study timer attribute from our rootReducer
   const [active, setActive] = useState(false); // create a state to toggle the clock display
 
@@ -27,6 +27,7 @@ function App() {
       // set timer reference object to setInterval()
       setRemainingTime((remainingTime) => {
         if (remainingTime - 1 <= 0) {
+          // timer is done
           return 0;
         } else {
           //if timer hasn't finished, continue decrementing the remainingTime state property
@@ -47,15 +48,17 @@ function App() {
   };
 
   /* pauseTimer() function which will pause or unpause depending on flag  */
-  const [paused, setPaused] = useState(false); // hook/state for pausing the timer, initialized to false
+  const [paused, setPaused] = useState(true); // hook/state for pausing the timer
   let saveTime = remainingTime; // store the current remaining time in a temporary variable
+
   function pauseTimer() {
     setPaused(!paused);
-    if (paused) {
+    if (paused === false) {
+      // unpausing
       startTimer();
       setRemainingTime(saveTime);
     } else {
-      //if not paused, we can restart timer with saved value
+      // pausing
       saveTime = remainingTime;
       clearInterval(timerRef.current);
     }
